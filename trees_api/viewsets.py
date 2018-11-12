@@ -13,7 +13,10 @@ class TreeViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = TreeSerializer
     pagination_class = TreePagination
 
-    filter_backends = (DistanceToPointFilter, DjangoFilterBackend)
+    filter_backends = (
+        DistanceToPointFilter,
+        DjangoFilterBackend
+    )
 
     distance_filter_field = 'location'
     bbox_filter_field = 'location'
