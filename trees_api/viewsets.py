@@ -24,10 +24,10 @@ class TreeViewSet(viewsets.ReadOnlyModelViewSet):
     bbox_filter_include_overlapping = True
 
     filter_fields = {
-        'identifier': ['exact', 'contains'],
-        'species': ['exact', 'contains'],
-        'genus': ['exact', 'contains'],
-        'borough': ['exact', 'contains'],
+        'identifier': ['iexact', 'contains'],
+        'species': ['iexact', 'contains'],
+        'genus': ['iexact', 'contains'],
+        'borough': ['iexact', 'contains'],
         'year': ['exact', 'gt', 'lt', 'gte', 'lte'],
         'age': ['exact', 'gt', 'lt', 'gte', 'lte'],
         'circumference': ['exact', 'gt', 'lt', 'gte', 'lte'],
