@@ -62,4 +62,5 @@ On the development server the api is available at http://localhost:8000/trees.
 
 * Filter trees with given properties: http://localhost:8000/trees/?genus=Abies
 * For numerical fields `gt` (>), `gte` (>=), `lt` (<), `lte` (<=) can be used: http://localhost:8000/trees/?height__gt=10
+* For string fields `iexact` (case insensitive) and `contains` can be used: http://localhost:8000/trees/?genus__iexact=abies
 * All trees with a given distance to point (or less) can be retrieved: http://localhost:8000/trees/?dist=100&point=13.381018,52.498606
