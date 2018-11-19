@@ -1,11 +1,12 @@
-from rest_framework_gis import serializers
+from rest_framework import serializers
+from rest_framework_gis import serializers as gis_serializers
 
 from .models import Tree
 
 
-class TreeSerializer(serializers.GeoFeatureModelSerializer):
+class TreeSerializer(gis_serializers.GeoFeatureModelSerializer):
 
-    location = serializers.GeometrySerializerMethodField()
+    location = gis_serializers.GeometrySerializerMethodField()
 
     class Meta:
         model = Tree
@@ -19,3 +20,21 @@ class TreeSerializer(serializers.GeoFeatureModelSerializer):
 
     def get_properties(self, instance, fields):
         return instance.properties
+
+
+class SpeciesSerializer(serializers.Serializer):
+
+    species = serializers.CharField()
+    count = serializers.IntegerField()
+
+
+class GenusSerializer(serializers.Serializer):
+
+    genus = serializers.CharField()
+    count = serializers.IntegerField()
+
+
+class BoroughSerializer(serializers.Serializer):
+
+    borough = serializers.CharField()
+    count = serializers.IntegerField()

@@ -58,9 +58,17 @@ Then, fetch and ingest the data from the WFS service using:
 
 ## Making queries
 
-On the development server the api is available at http://localhost:8000/trees.
+(On the development server the api is available at http://localhost:8000.)
 
-* Filter trees with given properties: http://localhost:8000/trees/?genus=Abies
-* For numerical fields `gt` (>), `gte` (>=), `lt` (<), `lte` (<=) can be used: http://localhost:8000/trees/?height__gt=10
-* For string fields `iexact` (case insensitive) and `contains` can be used: http://localhost:8000/trees/?genus__iexact=abies
-* All trees with a given distance to point (or less) can be retrieved: http://localhost:8000/trees/?dist=100&point=13.381018,52.498606
+* Filter trees with given properties:
+  * https://trees.codefor.de/api/v2/trees/?genus=Abies
+* For numerical fields (`year`, `age`, `circumference`, `height`) `gt` (>), `gte` (>=), `lt` (<), `lte` (<=) can be used:
+  * https://trees.codefor.de/api/v2/trees/?height__gt=10
+* For string fields (`identifier`, `species`, `genus`, `borough`) `iexact` (case insensitive) and `contains` can be used:
+  * https://trees.codefor.de/api/v2/trees/?genus__iexact=abies
+* All trees with a given distance to point (or less) can be retrieved:
+  * https://trees.codefor.de/api/v2/trees/?dist=100&point=13.381018,52.498606
+* Histogram of `species`, `genus`, `borough`, e.g.:
+  * https://trees.codefor.de/api/v2/boroughs/
+  * https://trees.codefor.de/api/v2/species/?species__contains=Robinia
+  * https://trees.codefor.de/api/v2/genera/?genus__iexact=QUERCUS
