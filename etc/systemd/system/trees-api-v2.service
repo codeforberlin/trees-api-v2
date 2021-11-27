@@ -1,0 +1,16 @@
+[Unit]
+Description=trees-api-v2 gunicorn daemon
+After=network.target
+
+[Service]
+User=trees
+Group=trees
+
+WorkingDirectory=/srv/trees/trees-api-v2
+
+ExecStart=/srv/trees/trees-api-v2/env/bin/gunicorn \
+    --workers 3 --bind 0.0.0.0:9000 \
+    --env SCRIPT_NAME=/api/v2 config.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
