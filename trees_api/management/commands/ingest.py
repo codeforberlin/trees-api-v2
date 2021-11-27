@@ -33,7 +33,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         with open(options['config']) as f:
-            config = yaml.load(f.read())
+            config = yaml.safe_load(f.read())
 
         # get the timeStamp using a SAX parser
         handler = TimeStampHandler()

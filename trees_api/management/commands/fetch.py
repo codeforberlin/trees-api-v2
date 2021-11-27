@@ -14,7 +14,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         with open(options['config']) as f:
-            config = yaml.load(f.read())
+            config = yaml.safe_load(f.read())
 
         response = requests.get(config['url'], stream=True)
 
